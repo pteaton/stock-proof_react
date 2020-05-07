@@ -8,7 +8,7 @@ Do you play the stock market? Do you want to let people know about your successf
 
 
 ### Technology Used
-Cloudinary, CORS, Postgress SQL, Python-Flask, React & Sqlite
+CORS, Postgress SQL, Python-Flask, React & Sqlite
 
 ### User Story
 User can register
@@ -77,6 +77,11 @@ Scored on a scale of 0 - 9
 ### OperatingEfficiency: (2 points)
 	direction_of_margin = IntegerField()  
 	direction_of_asset_turnover = IntegerField()
+
+
+# Wireframes
+![alt text](https://i.imgur.com/59QTTcu.jpg)
+![alt text](https://i.imgur.com/m9lR93B.jpg)
 
 # Stretch Goals
 Users can upload a profile picture
