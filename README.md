@@ -42,10 +42,10 @@ User can logout of their account (still view the stock just created, but also ca
 	email = CharField(unique=True)
 	username = CharField(unique=True)
 	password = CharField()
-	profile_pic = TextField()
 	bio = TextField()
 
 ### Stock
+	company_name = CharField() - name of company
 	bad_management = CharField() – stable management,  low turnover mid/high positions
 	balance_sheet = CharField() – assets, liabilities, net worth calculation	
 	enterprise_life_cycle = TextField() – development, reinvestment for success		
