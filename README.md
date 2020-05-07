@@ -93,6 +93,8 @@ Users can like other stocks
 Stocks update using live data
 
 # How to start app:
-st enter python3 app.py in the new folder to run the app
+1) This app uses two different repositories for the front-end and the back-end, make sure to run flask api first
+
+2) With flask api running, clone this repo in the terminal, in the cloned repo in the terminal run npm install, once installed run npm start 
 
 
