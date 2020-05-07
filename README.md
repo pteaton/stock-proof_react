@@ -1,68 +1,87 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Stock Proof 
 
-## Available Scripts
+### Author
+Patrick Eaton
 
-In the project directory, you can run:
+### About
+Do you play the stock market? Do you want to let people know about your successful stocks or warn others of stocks to avoid? Well then stockproof is for you! stockproof allows you to create and test stocks using the piotroski f-score to determine if the stock is worth pursuing, if the stock runs well on the f-score then upload it to the stock show page for other users to see!
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Technology Used
+Cloudinary, CORS, Postgress SQL, Python-Flask, React & Sqlite
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# Routes
+### Users
+	POST	/users/login – user login 
+	POST	/users/register – user register
+	GET	/users/logout – user logout
+	PUT 	/users/<id> – user edit/update profile
+	DELETE  /users/<id> - delete user profile
 
-### `npm test`
+### Stocks
+	GET	/mystocks – shows stocks
+	POST	/stocks - create stock
+	PUT	/stocks/<id> – edit/update stock 
+	DELETE	/stocks/<id> – delete stock
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screens
+	GET 	/myscreens – shows user screens
+	POST	/screens – create screen
+	PUT 	/screens/<id> - edit/update screen
+	DELETE	/screens/<id> - delete screen
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Models 
+### User
+	email = CharField(unique=True)
+	username = CharField(unique=True)
+	password = CharField()
+	profile_pic = TextField()
+	bio = TextField()
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Stock
+	bad_management = CharField() – stable management,  low turnover mid/high positions
+	balance_sheet = CharField() – assets, liabilities, net worth calculation	
+	enterprise_life_cycle = TextField() – development, reinvestment for success		
+	economic_moat = TextField() – competitive advantages	
+	dividend_paying_stock = CharField() – business compounds wealth over time	
+	earnings_stability = CharField() –  yes/no -- lowers chance of forecasting errors and risk	
+	operating_efficiency = IntegerField() – Return on Assets = net income/assets
+	creator = ForeignKeyField(User, backref=’stocks’) – cites the author of the stock
+	date_posted = date(default=date.time.datetime.now) – time stock posted
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Piotroski F-Score Screen:  
+Used to determines value of stock
 
-### `npm run eject`
+Uses a binary pass/fail system 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Scored on a scale of 0 - 9
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Profitability: (4 points)
+	return_on_asset =: IntegerField() 
+	cash_flow_from_operations = IntegerField() 
+	direction_of_return_on_assets = IntegerField() 
+	accrual_accounting_check = IntegerField() 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### CapitalStructure: (3 points)
+	direction_of_leverage = IntegerField() 
+	direction_of_liquidity = IntegerField()  
+	issue_stock = IntegerField()  	
+	
+### OperatingEfficiency: (2 points)
+	direction_of_margin = IntegerField()  
+	direction_of_asset_turnover = IntegerField()
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Stretch Goals
+Users can upload a profile picture
 
-## Learn More
+Users can rate other stocks
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Users can like other stocks
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Stocks update using live data
 
-### Code Splitting
+# How to start app:
+st enter python3 app.py in the new folder to run the app
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
