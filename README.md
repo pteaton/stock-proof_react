@@ -10,26 +10,32 @@ Do you play the stock market? Do you want to let people know about your successf
 ### Technology Used
 Cloudinary, CORS, Postgress SQL, Python-Flask, React & Sqlite
 
-# Routes
-### Users
-	POST	/users/login – user login 
-	POST	/users/register – user register
-	GET	/users/logout – user logout
-	PUT 	/users/<id> – user edit/update profile
-	DELETE  /users/<id> - delete user profile
+### User Story
+User can register
 
-### Stocks
-	GET	/mystocks – shows stocks
-	POST	/stocks - create stock
-	PUT	/stocks/<id> – edit/update stock 
-	DELETE	/stocks/<id> – delete stock
+User can log in
 
-### Screens
-	GET 	/myscreens – shows user screens
-	POST	/screens – create screen
-	PUT 	/screens/<id> - edit/update screen
-	DELETE	/screens/<id> - delete screen
+User registers, then is taken back to home page (or user logs in and is taken to their user page?)
 
+User clicks add stock (this now appears in the nav bar, it didn’t before b/c you weren’t registered/logged in)
+
+User taken to add stock page/add stock module
+
+User can add info for stock (stock model fields)
+
+User created stock now displays on user page (and stock show page, or can add it to stock show page from user stock show page)
+
+User can edit(then update), delete or upload to stock show page via buttons
+
+User clicks on piotroski tab to test stock
+
+User can then enter the stock info and run it in the piotroski f-score stock screen to see how their stock will fair
+
+User can edit(the update), delete the stocks that they screen
+
+User can edit(then update) or delete their profile (user can also create a profile photo & bio)
+
+User can logout of their account (still view the stock just created, but also cannot edit it since they are not the user that created it)
 
 # Models 
 ### User
