@@ -8,7 +8,7 @@ Do you play the stock market? Do you want to let people know about your successf
 
 
 ### Technology Used
-CORS, Postgress SQL, Python-Flask, React & Sqlite
+Cloudinary, CORS, Postgress SQL, Python-Flask, React & Sqlite
 
 ### User Story
 User can register
@@ -23,15 +23,21 @@ User taken to add stock page/add stock module
 
 User can add info for stock (stock model fields)
 
-User created stock now displays on user page (and stock show page, or can add it to stock show page from user stock show page)
+User created stock now displays on portfolio (and stock show page, or can add it to stock show page from user stock show page)
 
-User can edit(then update), delete or upload to stock show page via buttons
+User can edit(then update), delete or upload to porfolio via buttons
 
 User clicks on piotroski tab to test stock
 
 User can then enter the stock info and run it in the piotroski f-score stock screen to see how their stock will fair
 
 User can edit(the update), delete the stocks that they screen
+
+User can click on Track a stock tab, taken to tracking page
+
+User can search a stock, graph with most recent live data populates below search bar
+
+User can add a stock to their portfolio
 
 User can edit(then update) or delete their profile (user can also create a profile photo & bio)
 
@@ -42,46 +48,37 @@ User can logout of their account (still view the stock just created, but also ca
 	email = CharField(unique=True)
 	username = CharField(unique=True)
 	password = CharField()
+	profile_photo = TextField()
 	bio = TextField()
 
 ### Stock
-	company_name = CharField() - name of company
-	bad_management = CharField() – stable management,  low turnover mid/high positions
-	balance_sheet = CharField() – assets, liabilities, net worth calculation	
-	enterprise_life_cycle = TextField() – development, reinvestment for success		
-	economic_moat = TextField() – competitive advantages	
-	dividend_paying_stock = CharField() – business compounds wealth over time	
-	earnings_stability = CharField() –  yes/no -- lowers chance of forecasting errors and risk	
-	operating_efficiency = IntegerField() – Return on Assets = net income/assets
-	creator = ForeignKeyField(User, backref=’stocks’) – cites the author of the stock
-	date_posted = date(default=date.time.datetime.now) – time stock posted
+	company_name = CharField()
+	market_cap = IntegerField()
+	beta = IntegerField()
+	open = IntegerField()
+	previous_close = IntegerField()
+	pe_ratio = IntegerField()
+	earnings_per_share = IntegerField()	
+	poster = ForeignKeyField(User, backref=’stocks’) 
+	date_posted = date(default=date.time.datetime.now)
 
 ## Piotroski F-Score Screen:  
-Used to determines value of stock
-
-Uses a binary pass/fail system 
-
-Scored on a scale of 0 - 9
-
-### Profitability: (4 points)
-	return_on_asset =: IntegerField() 
+	return_on_asset = IntegerField() 
 	cash_flow_from_operations = IntegerField() 
 	direction_of_return_on_assets = IntegerField() 
 	accrual_accounting_check = IntegerField() 
-
-### CapitalStructure: (3 points)
 	direction_of_leverage = IntegerField() 
 	direction_of_liquidity = IntegerField()  
 	issue_stock = IntegerField()  	
-	
-### OperatingEfficiency: (2 points)
 	direction_of_margin = IntegerField()  
 	direction_of_asset_turnover = IntegerField()
 
 
 # Wireframes
-![alt text](https://i.imgur.com/59QTTcu.jpg)
-![alt text](https://i.imgur.com/m9lR93B.jpg)
+![alt text](https://i.imgur.com/mMxSYgl.jpg)
+![alt text](https://i.imgur.com/CXB1nBc.jpg)
+![alt text](https://i.imgur.com/XVIPytG.jpg)
+
 
 # Stretch Goals
 Users can upload a profile picture
