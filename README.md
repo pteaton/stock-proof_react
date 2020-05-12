@@ -4,7 +4,7 @@
 Patrick Eaton
 
 ### About
-Do you play the stock market? Do you want to let people know about your successful stocks or warn others of stocks to avoid? Well then stockproof is for you! stockproof allows you to create and test stocks using the piotroski f-score to determine if the stock is worth pursuing, if the stock runs well on the f-score then upload it to the stock show page for other users to see!
+Do you play the stock market? Do you want to let people know about your successful stocks or warn others of stocks to avoid? Well then stockproof is for you! Stockproof allows you to create and test stocks using the piotroski f-score to determine if the stock is worth pursuing, if the stock runs well on the f-score then track your stock to see if the screening valued it correctly!
 
 
 ### Technology Used
@@ -48,21 +48,19 @@ User can logout of their account (still view the stock just created, but also ca
 	email = CharField(unique=True)
 	username = CharField(unique=True)
 	password = CharField()
-	profile_photo = TextField()
 	bio = TextField()
 
 ### Stock
 	company_name = CharField()
-	market_cap = IntegerField()
-	beta = IntegerField()
-	open = IntegerField()
+	stock_open = IntegerField()
+	stock_high = IntegerField()
+	stock_low = IntegerField()
 	previous_close = IntegerField()
-	pe_ratio = IntegerField()
-	earnings_per_share = IntegerField()	
+	volume = IntegerField()	
 	poster = ForeignKeyField(User, backref=’stocks’) 
 	date_posted = date(default=date.time.datetime.now)
 
-## Piotroski F-Score Screen:  
+## Piotroski Screen:  
 	return_on_asset = IntegerField() 
 	cash_flow_from_operations = IntegerField() 
 	direction_of_return_on_assets = IntegerField() 
@@ -72,6 +70,8 @@ User can logout of their account (still view the stock just created, but also ca
 	issue_stock = IntegerField()  	
 	direction_of_margin = IntegerField()  
 	direction_of_asset_turnover = IntegerField()
+	poster = ForeignKeyField(User, backref=’screens’) 
+	date_posted = date(default=date.time.datetime.now)
 
 
 # Wireframes
