@@ -48,17 +48,18 @@ export default class LoginRegisterForm extends Component {
 				{
 					this.state.action === "Login"
 					?
-					<p> Don't have an account yet? <span onClick={this.switchAction} className='fake-link'>Make one here :)</span></p>
+					<p> Don't have an account yet? <span onClick={this.switchAction} className='fake-link'>Create one here</span></p>
 					:
-					<p> Already have an account with us? <span onClick={this.switchAction} className='fake-link'>Sign in here :)</span></p>
+					<p> Already have an account with us? <span onClick={this.switchAction} className='fake-link'>Sign in here</span></p>
 				}
 				{
 					this.state.action === 'Register'
 					&&
 					<div className="authDivRequired">
 						<h4> Required Information </h4>
-						<small> You will not be able to change these later, so make the right choice</small>
+						<h6> You will not be able to change these later, so make the right choice*</h6>
 					</div>
+
 				}
 				<Form onSubmit={this.handleSubmit}>
 					<Label> Username </Label>
@@ -104,7 +105,7 @@ export default class LoginRegisterForm extends Component {
 								onChange={this.handleChange}
 							/>
 						</React.Fragment>
-					}
+					
 					<Button type='submit'> {this.state.action} </Button>
 				</Form>
 			</div>

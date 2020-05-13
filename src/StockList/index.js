@@ -20,7 +20,6 @@ export default function StockList(props) {
 						{stock.stock_low}
 						{stock.previous_close}
 						{stock.stock_volume}
-						{}
 					</Card.Meta>
 					<Card.Description>
 						<strong>By:</strong> {stock.poster.username.toUpperCase()} 
