@@ -23,7 +23,7 @@ export default function StockList(props) {
 					</Card.Meta>
 					<Card.Description>
 						<strong>By:</strong> {stock.poster.username.toUpperCase()} 
-						<strong>Date Posted: </strong> {stock.date_posted}
+						<small>Date Posted: </small> {stock.date_posted}
 					</Card.Description>
 				</Card.Content>
 			</Card>

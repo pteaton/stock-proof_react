@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import StockList from '../StockList'
+import StockShowPage from '../StockShowPage'
 
 export default class StockContainer extends Component {
 	constructor() {
@@ -123,20 +124,20 @@ export default class StockContainer extends Component {
 	render() {
 
 		return (
-
-				<StockList switchMode={this.switchMode} stocks={this.state.stocks} />
-				{
-					this.state.mode === 'show'
-					&&
-					<StockShowPage 
-						closeShowModal={this.closeShowModal}
-						stocksToShowData={this.state.stockToShowData}
-						currentUser={this.props.currentUser}
-						updateStocks={this.updateStocks}
-						deleteStocks={this.deleteStocks}
-					/>
-				}
-
+				<>
+					<StockList switchMode={this.switchMode} stocks={this.state.stocks} />
+					{
+						this.state.mode === 'show'
+						&&
+						<StockShowPage 
+							closeShowModal={this.closeShowModal}
+							stocksToShowData={this.state.stockToShowData}
+							currentUser={this.props.currentUser}
+							updateStocks={this.updateStocks}
+							deleteStocks={this.deleteStocks}
+						/>
+					}
+				</>
 		)
 	}
 

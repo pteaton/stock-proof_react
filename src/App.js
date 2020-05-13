@@ -1,6 +1,8 @@
 // Stock Intraday API Key = EIRKD54AJXO1NRSD
 import React, { Component } from 'react';
 import LoginRegisterForm from './LoginRegisterForm'
+import StockContainer from './StockContainer'
+import UserContainer from './UserContainer'
 import 'semantic-ui-react';
 import './App.css';
 
