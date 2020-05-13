@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Modal, Button } from 'semantic-ui-react'
+import EditStockModal from '../EditStockModal'
 import moment from 'moment'
 import '../index.css'
 
