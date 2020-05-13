@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import UserList from '../UserList'
+import UserShowPage from '../UserShowPage'
 import '../index.css'
 
 export default class UserContainer extends Component {
@@ -33,6 +35,7 @@ export default class UserContainer extends Component {
 				mode: 'index',
 				userToShowData: '',
 				userToShowStocks: ''
+				// userToShowScreens: ''
 			})
 		}
 	}
