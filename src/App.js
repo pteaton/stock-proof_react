@@ -156,6 +156,26 @@ export default class App extends Component {
     }
   }
 
+  addScreen = async (screenToAdd) => {
+
+    try {
+      const url = process.env.REACT_APP_API_URL + '/screens/add'
+      const addScreenResponse = await fetch(url, {
+        credentials: 'include',
+        method: 'POST',
+        body: JSON.stringify(screenToAdd),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      const addScreenJson = await addScreenResponse.json()
+      console.log(addScreenJson)
+
+    } catch(error) {
+      console.error(error)
+    }
+  }
 
   render() {
     
@@ -167,6 +187,7 @@ export default class App extends Component {
           switchMode={this.switchMode}
           toggleAdd={this.toggleAdd}
           addStock={this.addStock}
+          addScreen={this.addScreen}
           mode={this.state.mode}
           goHome={this.goHome}
           currentUser={this.state.currentUser}
