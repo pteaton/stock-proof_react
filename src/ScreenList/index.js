@@ -15,9 +15,9 @@ export default function ScreenList(props) {
 						{screen.poster.username.toUpperCase()} 
 					</Card.Header>
 					<Card.Meta>
-						{screen.return_on_asset} 
+						{screen.return_on_assets} 
 						{screen.cash_flow_from_operations}
-						{screen.direction_of_return_on_assets}
+						{screen.direction_of_return_of_assets}
 						{screen.accrual_accounting_check}
 						{screen.direction_of_leverage}
 						{screen.direction_of_liquidity}

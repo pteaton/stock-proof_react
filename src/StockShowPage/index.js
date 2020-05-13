@@ -54,7 +54,7 @@ export default class StockShowPage extends Component {
 					&&
 					<Modal open={true} closeIcon onClose={this.props.closeShowModal}>
 						<div className='insideModalInfo'>
-							<h3>{this.props.stockToShowData.title}</h3>
+							<h3>{this.props.stockToShowData.company_name}</h3>
 							<p><small><strong>By:</strong> {this.props.stockToShowData.poster.username}</small></p>
 							<p><strong>Company:</strong> {this.props.stockToShowData.company_name}</p>
 							<p><strong>Open:</strong> {this.props.stockToShowData.stock_open}</p>
