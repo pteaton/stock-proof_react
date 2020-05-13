@@ -49,7 +49,7 @@ export default class StockShowPage extends Component {
 		const dateMade = new Date(this.props.stockToShowData.date_posted)
 
 		return (
-			
+			<>
 				{
 					this.props.stockToShowData.poster !== undefined
 					&&
@@ -89,7 +89,7 @@ export default class StockShowPage extends Component {
 						</div>
 					</Modal>
 				}	
-			/>
+			</>
 		)
 	}
 }
