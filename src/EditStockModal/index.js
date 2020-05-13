@@ -18,6 +18,7 @@ export default class EditStockModal extends Component {
 	}
 
 	componentDidMount() {
+		console.log(this.props)
 		{
 			this.props.stockToShowData !== ""
 			&&

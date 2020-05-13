@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal, Button, Card, Image } from 'semantic-ui-react'
+import { Modal, Button, Card } from 'semantic-ui-react'
 import EditUserModal from '../EditUserModal'
 import StockList from '../StockList'
 
