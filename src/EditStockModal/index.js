@@ -12,14 +12,13 @@ export default class EditStockModal extends Component {
 			stock_open: '',
 			stock_high: '',
 			stock_low: '',
-			previous_close: '',
-			date_posted: ''
+			previous_close: ''
 		}
 	}
 
 	componentDidMount() {
 		console.log(this.props)
-		{
+		//{
 			this.props.stockToShowData !== ""
 			&&
 			this.setState({
@@ -28,11 +27,10 @@ export default class EditStockModal extends Component {
 				stock_high: this.props.stockToShowData.stock_high,
 				stock_low: this.props.stockToShowData.stock_low,
 				previous_close: this.props.stockToShowData.previous_close,
-				stock_volume: this.props.stockToShowData.stock_volume,
-				date_posted: this.props.stockToShowData.date_posted
+				stock_volume: this.props.stockToShowData.stock_volume
 
 			})
-		}
+		//}
 	}
 
 	handleChange = (event) => {
@@ -114,17 +112,6 @@ export default class EditStockModal extends Component {
 								type='integer'
 								placeholder='Volume'
 								value={this.state.stock_volume}
-								onChange={this.handleChange}
-							/>
-						</Form.Field>
-						<Form.Field>
-							<Label>Date Posted</Label>
-							<Input
-								focus
-								name='date_posted'
-								type='integer'
-								placeholder='Date Posted'
-								value={this.state.date_posted}
 								onChange={this.handleChange}
 							/>
 						</Form.Field>

@@ -57,10 +57,10 @@ User can logout of their account (still view the stock just created, but also ca
 	stock_low = IntegerField()
 	previous_close = IntegerField()
 	volume = IntegerField()	
-	poster = ForeignKeyField(User, backref=’stocks’) 
-	date_posted = date(default=date.time.datetime.now)
+	poster = ForeignKeyField(User, backref='stocks') 
+	date_posted = DateTimeField(default=datetime.datetime.now)
 
-## Piotroski Screen:  
+## Piotroski F-Score Screen:  
 	return_on_asset = IntegerField() 
 	cash_flow_from_operations = IntegerField() 
 	direction_of_return_on_assets = IntegerField() 
@@ -70,8 +70,9 @@ User can logout of their account (still view the stock just created, but also ca
 	issue_stock = IntegerField()  	
 	direction_of_margin = IntegerField()  
 	direction_of_asset_turnover = IntegerField()
-	poster = ForeignKeyField(User, backref=’screens’) 
-	date_posted = date(default=date.time.datetime.now)
+	poster = ForeignKeyField(User, backref='screens') 
+	date_posted = DateTimeField(default=datetime.datetime.now)
+
 
 
 # Wireframes

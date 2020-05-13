@@ -4,6 +4,7 @@ import '../index.css'
 
 export default function UserList(props) {
 	const style = ""
+	console.log(style)
 	const usersListed = props.users.map(user => {
 		return (	
 			<Card 

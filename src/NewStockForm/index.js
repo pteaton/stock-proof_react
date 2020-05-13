@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Label, Modal, Input} from 'semantic-ui-react'
+import { Form, Button, Label, Input} from 'semantic-ui-react'
 
 
 export default class NewStockForm extends Component {
@@ -121,6 +121,4 @@ export default class NewStockForm extends Component {
 				</div>
 		)
 	}
-
-}
 }

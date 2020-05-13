@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Modal, Button, Card } from 'semantic-ui-react'
 import EditUserModal from '../EditUserModal'
-import StockList from '../StockList'
 
 
 export default class UserShowPage extends Component {

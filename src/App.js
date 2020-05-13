@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import LoginRegisterForm from './LoginRegisterForm'
 import StockContainer from './StockContainer'
 import UserContainer from './UserContainer'
+import Header from './Header'
+import Footer from './Footer'
+import Home from './Home'
 import 'semantic-ui-react';
 import './App.css';
 
@@ -120,15 +123,87 @@ export default class App extends Component {
     }
   }
 
+    switchMode = (event) => {
+    this.setState({
+      mode: event.target.innerText
+    })
+  }
+
+  goHome = () => {
+    this.setState({
+      mode: "Home"
+    })
+  }
+
+  addStock = async (stockToAdd) => {
+    
+    try {
+      const url = process.env.REACT_APP_API_URL + '/stocks/add'
+      const addStockResponse = await fetch(url, {
+        credentials: 'include',
+        method: 'POST',
+        body: JSON.stringify(stockToAdd),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      const addStockJson = await addStockResponse.json()
+      console.log(addStockJson)
+    
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
 
   render() {
+    
     return (
       <div className="App">
+        <Header 
+          logout={this.logout} 
+          loggedIn={this.state.loggedIn}
+          switchMode={this.switchMode}
+          toggleAdd={this.toggleAdd}
+          addStock={this.addStock}
+          mode={this.state.mode}
+          goHome={this.goHome}
+          currentUser={this.state.currentUser}
+        />
+        
+        <div className='main'>
+          {
+            this.state.mode === "Home"
+            &&
+            <Home />
+          }
+          {
+            this.state.mode === "User"
+            &&
+            <UserContainer 
+              currentUser={this.state.currentUser}
+              logout={this.logout}
+            />
+          }
+          {
+            this.state.mode === "Stocks"
+            &&
+            <StockContainer 
+              currentUser={this.state.currentUser}
+            />
+          }
+          {
+            this.state.mode === "Log In / Register"
+            &&
             <LoginRegisterForm 
               message={this.state.message} 
               login={this.login} 
               register={this.register}
             />
+          }
+        </div>
+        <Footer />
       </div>
     );
   }
