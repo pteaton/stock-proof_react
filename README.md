@@ -61,9 +61,9 @@ User can logout of their account (still view the stock just created, but also ca
 	date_posted = DateTimeField(default=datetime.datetime.now)
 
 ## Piotroski F-Score Screen:  
-	return_on_asset = IntegerField() 
+	return_on_assets = IntegerField() 
 	cash_flow_from_operations = IntegerField() 
-	direction_of_return_on_assets = IntegerField() 
+	direction_of_return_of_assets = IntegerField() 
 	accrual_accounting_check = IntegerField() 
 	direction_of_leverage = IntegerField() 
 	direction_of_liquidity = IntegerField()  

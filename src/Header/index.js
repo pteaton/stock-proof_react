@@ -51,6 +51,9 @@ export default class Header extends Component {
 						<span className='fake-link' onClick={this.props.switchMode}>Stocks</span>
 						
 						|---|
+						<span className='fake-link' onClick={this.props.switchMode}>Screens</span>
+
+						|---|
 						{
 							this.props.loggedIn
 							?
@@ -67,6 +70,20 @@ export default class Header extends Component {
 											onClose={this.showModal}
 										> 
 											<NewStockForm addStock={this.props.addStock}/> 
+										</Modal>
+									}
+									|
+									<span className='fake-link' onClick={this.showModal}>Add Screen</span>
+									{
+										this.state.showModal
+										&&
+										<Modal 
+											open={true}
+											closeIcon
+											onSubmit={this.showModal}
+											onClose={this.showModal}
+										> 
+											<NewScreenForm addScreen={this.props.addScreen}/> 
 										</Modal>
 									}
 									|

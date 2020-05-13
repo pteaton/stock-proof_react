@@ -64,7 +64,36 @@ export default class UserShowPage extends Component {
 				)
 			})
 		}
+		
+		let userScreenCard;
+
+		if(this.props.userToShowScreens) {
+			userScreenCard = this.props.userToShowScreens.map(screen => {
+				return (
+					<Card key={screen.id}> 
+						<Card.Content>
+							<Card.Header>
+								{stock.poster.username.id} 
+							</Card.Header>
+							<Card.Meta>
+								<strong>Return on Assets:</strong> {screen.return_on_assets}
+								<strong>Cash Flow from Operations:</strong> {screen.cash_flow_from_operations}
+								<strong>Change in Return of Assets:</strong> {screen.direction_of_return_of_assets}
+								<strong>Accrual Accounting Check:</strong> {screen.accrual_accounting_check}
+								<strong>Direction of Leverage:</strong> {screen.direction_of_leverage}
+								<strong>Direction of Liquidity:</strong> {screen.direction_of_liquidity}
+								<strong>Change in Number of Shares:</strong> {screen.issue_stock}
+								<strong>Change in Gross Margin:</strong> {screen.direction_of_margin}
+								<strong>Change in Asset Turnover Ratio:</strong> {screen.direction_of_asset_turnover}
+							</Card.Meta>
+						</Card.Content>
+					</Card>
+				)
+			})
+		}
+
 		return (
+			this.props.userToShowScreens !== [],
 			this.props.userToShowStocks !== []
 			&&
 			<Modal closeIcon onClose={this.props.closeShowModal} open={true}>
@@ -85,6 +114,17 @@ export default class UserShowPage extends Component {
 						:
 						<p><i>No stock uploaded yet</i></p>
 					}
+					{
+						this.props.userToShowScreens.length !== 0
+						?
+						<React.Fragment>
+							<p><strong>Created Screens</strong></p>
+							<Card.Group centered={true}> {userScreenCard} </Card.Group>
+						</React.Fragment>
+						:
+						<p><i>No screenings yet</i></p>
+					}
+
 					<div className='authControls'>
 					{
 						this.props.currentUser.id === this.props.userToShowData.id

@@ -10,7 +10,7 @@ export default class EditScreenModal extends Component {
 		this.state = {
 			return_on_assets: '',
 			cash_flow_from_operations: '',
-			direction_of_return_on_assets: '',
+			direction_of_return_of_assets: '',
 			accrual_accounting_check: '',
 			direction_of_leverage: '',
 			direction_of_liquidity: '',
@@ -29,7 +29,7 @@ export default class EditScreenModal extends Component {
 			this.setState({
 				return_on_assets: this.props.screenToShowData.return_on_assets,
 				cash_flow_from_operations: this.props.screenToShowData.cash_flow_from_operations,
-				direction_of_return_on_assets: this.props.screenToShowData.direction_of_return_on_assets,
+				direction_of_return_of_assets: this.props.screenToShowData.direction_of_return_of_assets,
 				accrual_accounting_check: this.props.screenToShowData.accrual_accounting_check,
 				direction_of_leverage: this.props.screenToShowData.direction_of_leverage,
 				direction_of_liquidity: this.props.screenToShowData.direction_of_liquidity,
@@ -86,7 +86,7 @@ export default class EditScreenModal extends Component {
 								name='direction_of_return_of_assets'
 								type='integer'
 								placeholder='Change in Return of Assets'
-								value={this.state.direction_of_return_on_assets}
+								value={this.state.direction_of_return_of_assets}
 								onChange={this.handleChange}
 							/>
 						</Form.Field>

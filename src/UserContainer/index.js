@@ -13,7 +13,7 @@ export default class UserContainer extends Component {
 			mode: 'index',
 			userToShowData: '',
 			userToShowStocks: '',
-			// userToShowScreens: ''
+			userToShowScreens: ''
 		}
 	}
 
@@ -35,7 +35,7 @@ export default class UserContainer extends Component {
 				mode: 'index',
 				userToShowData: '',
 				userToShowStocks: ''
-				// userToShowScreens: ''
+				userToShowScreens: ''
 			})
 		}
 	}
@@ -184,6 +184,7 @@ export default class UserContainer extends Component {
 					<UserShowPage 
 						closeShowModal={this.closeShowModal} 
 						userToShowData={this.state.userToShowData}
+						userToShowScreens={this.state.userToShowScreens}
 						userToShowStocks={this.state.userToShowStocks}
 						currentUser={this.props.currentUser}
 						updateUser={this.updateUser}
