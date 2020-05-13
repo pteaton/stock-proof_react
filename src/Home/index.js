@@ -6,7 +6,7 @@ export default function Home(){
 			<h3> Home </h3>
 			<div className='homePage'>
 				<div className='aboutStockproof'>
-					Welcome to Stock proof!
+					<strong>Welcome to Stock proof!</strong>
 				</div>
 			</div>
 
