@@ -34,7 +34,7 @@ export default class UserContainer extends Component {
 			this.setState({
 				mode: 'index',
 				userToShowData: '',
-				userToShowStocks: ''
+				userToShowStocks: '',
 				userToShowScreens: ''
 			})
 		}

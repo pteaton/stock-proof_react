@@ -73,7 +73,7 @@ export default class UserShowPage extends Component {
 					<Card key={screen.id}> 
 						<Card.Content>
 							<Card.Header>
-								{stock.poster.username.id} 
+								{screen.poster.username.id} 
 							</Card.Header>
 							<Card.Meta>
 								<strong>Return on Assets:</strong> {screen.return_on_assets}

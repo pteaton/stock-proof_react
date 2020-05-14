@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import NewStockForm from '../NewStockForm'
+import NewScreenForm from '../NewScreenForm'
 import { Modal } from 'semantic-ui-react'
 import '../index.css'
 

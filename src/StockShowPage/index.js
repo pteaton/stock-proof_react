@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Modal, Button } from 'semantic-ui-react'
+// import { Chart } from 'react-charts'
 import EditStockModal from '../EditStockModal'
 import '../index.css'
+
 
 export default class StockShowPage extends Component {
 	constructor() {
@@ -56,7 +58,6 @@ export default class StockShowPage extends Component {
 						<div className='insideModalInfo'>
 							<h3>{this.props.stockToShowData.company_name}</h3>
 							<p><small><strong>By:</strong> {this.props.stockToShowData.poster.username}</small></p>
-							<p><strong>Company:</strong> {this.props.stockToShowData.company_name}</p>
 							<p><strong>Open:</strong> {this.props.stockToShowData.stock_open}</p>
 							<p><strong>High:</strong> {this.props.stockToShowData.stock_high}</p>
 							<p><strong>Low:</strong> {this.props.stockToShowData.stock_low}</p>

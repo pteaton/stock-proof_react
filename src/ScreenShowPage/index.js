@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Modal, Button } from 'semantic-ui-react'
-// will need to import editscreenmodal here
+import EditScreenModal from '../EditScreenModal'
 import '../index.css'
 
 export default class ScreenShowPage extends Component {

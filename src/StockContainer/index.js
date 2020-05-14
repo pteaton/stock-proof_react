@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+// import { Chart } from 'react-charts'
+import Plot from 'react-plotly.js';
 import StockList from '../StockList'
 import StockShowPage from '../StockShowPage'
 
@@ -6,6 +8,8 @@ export default class StockContainer extends Component {
 	constructor() {
 		super()
 		this.state = {
+			stockChartXValues: [],
+			stockChartYValues: [],
 			stocks: [],
 			mode: 'index',
 			stocksToShowData: ''
@@ -13,7 +17,42 @@ export default class StockContainer extends Component {
 	}
 
 	componentDidMount() {
+		this.fetchStock();
 		this.getStocks()
+	}
+	// stock api graph display
+	fetchStock() {
+		const pointerToThis = this;
+		console.log(pointerToThis)
+		const API_KEY = 'EIRKD54AJXO1NRSD';
+		let StockSymbol = 'AMZN'
+		let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${StockSymbol}&interval=5min&outputsize=compact&apikey=${API_KEY}`
+		let stockChartXValuesFunction = [];
+		let stockChartYValuesFunction = [];
+
+		fetch(API_Call)
+			.then(
+				function(response) {
+					return response.json();
+				}
+			)
+			.then(
+				function(data) {
+					console.log(data);
+
+					for (let key in data['Time Series (5min)']) {
+						stockChartXValuesFunction.push(key)
+						stockChartYValuesFunction.push(data['Time Series (5min)']
+						[key]['1. open']);
+					}
+
+					// console.log(stockChartXValuesFunction)
+					pointerToThis.setState({
+						stockChartXValues: stockChartXValuesFunction,
+						stockChartYValues: stockChartYValuesFunction
+					})
+				}
+			)
 	}
 
 	switchMode = (id) => {
@@ -124,8 +163,21 @@ export default class StockContainer extends Component {
 	render() {
 
 		return (
-				<>
-					<StockList switchMode={this.switchMode} stocks={this.state.stocks} />
+			<>
+				<StockList switchMode={this.switchMode} stocks={this.state.stocks} />
+      			<Plot
+        			data={[
+          			  {
+            			x: [1, 2, 3],
+            			y: [2, 6, 3],
+            			type: 'scatter',
+            			mode: 'lines+markers',
+            			marker: {color: 'red'},
+          			  },
+          				{type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
+        			]}
+        			layout={{width: 320, height: 240, title: 'A Fancy Plot'}}
+      			/>
 					{
 						this.state.mode === 'show'
 						&&
@@ -137,9 +189,8 @@ export default class StockContainer extends Component {
 							deleteStocks={this.deleteStocks}
 						/>
 					}
-				</>
+			</>
 		)
 	}
-
 
 }
