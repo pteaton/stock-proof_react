@@ -19,9 +19,7 @@ export default function UserList(props) {
 						{user.username}
 					</Card.Header>
 					<Card.Description>
-						<i>{user.poster}</i>
 						<i>{user.stocks}</i>
-						<i>{user.screens}</i>
 					</Card.Description>
 				</Card.Content>
 			</Card>

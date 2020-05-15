@@ -16,7 +16,7 @@ export default function StockList(props) {
 						{stock.name}
 					</Card.Header>
 					<Card.Meta>
-						<h1>Stock Data here: </h1>
+						<h1>Stock Data here:</h1>
 					</Card.Meta>
 					<Card.Description>
 						<strong>By:</strong> {stock.user.username.toUpperCase()} 

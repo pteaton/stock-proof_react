@@ -44,13 +44,11 @@ export default class Header extends Component {
 						
 						<span className='fake-link' onClick={this.props.goHome}>Home</span>
 						
-						|---|
+						|-----|
 						<span className='fake-link' onClick={this.props.switchMode}>User</span>
 						
-						|---|
+						|-----|
 						<span className='fake-link' onClick={this.props.switchMode}>Stocks</span>
-						
-						|---|
 
 						{
 							this.props.loggedIn
@@ -71,27 +69,13 @@ export default class Header extends Component {
 										</Modal>
 									}
 									|
-									<span className='fake-link' onClick={this.showModal}>Add Screen</span>
-									{
-										this.state.showModal
-										&&
-										<Modal 
-											open={true}
-											closeIcon
-											onSubmit={this.showModal}
-											onClose={this.showModal}
-										> 
-											<NewScreenForm addScreen={this.props.addScreen}/> 
-										</Modal>
-									}
-									|
 									<span className='fake-link' onClick={this.props.logout}>Logout</span>
 								</div>
 							</React.Fragment>
 							:
 							<React.Fragment>
 								
-								<span className='fake-link' onClick={this.props.switchMode}>Log In |---| Register</span>
+								<span className='fake-link' onClick={this.props.switchMode}>Log In |-----| Register</span>
 							</React.Fragment>
 						}
 					</div>

@@ -40,7 +40,7 @@ export default class SearchContainer extends Component {
 			console.log(err)
 		}
 	}
-
+	// best matches w/ map to pull specific stock from stock api
 
 	// stockData = this.state.bestMatches.map((stock) => {
 	// 	console.log(stockData)

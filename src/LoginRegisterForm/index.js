@@ -95,6 +95,9 @@ export default class LoginRegisterForm extends Component {
 						onChange={this.handleChange}
 						required
 					/>
+					{
+						this.state.action === 'Register'
+						&&
 						<React.Fragment>
 							<Label> Bio </Label>
 							<Form.TextArea
@@ -105,7 +108,7 @@ export default class LoginRegisterForm extends Component {
 								onChange={this.handleChange}
 							/>
 						</React.Fragment>
-					
+					}
 					<Button type='submit'> {this.state.action} </Button>
 				</Form>
 			</div>
