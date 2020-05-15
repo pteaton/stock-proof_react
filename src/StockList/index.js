@@ -12,18 +12,15 @@ export default function StockList(props) {
 						className='fake-link'
 						onClick={() => props.switchMode(stock.id)}
 					>
-						{stock.company_name} 
+						{stock.symbol}
+						{stock.name}
 					</Card.Header>
 					<Card.Meta>
-						{stock.stock_open} 
-						{stock.stock_high}
-						{stock.stock_low}
-						{stock.previous_close}
-						{stock.stock_volume}
+						<h1>Stock Data here: </h1>
 					</Card.Meta>
 					<Card.Description>
-						<strong>By:</strong> {stock.poster.username.toUpperCase()} 
-						<small>Date Posted: </small> {stock.date_posted}
+						<strong>By:</strong> {stock.user.username.toUpperCase()} 
+						<small>Date Added: </small> {stock.date_added}
 					</Card.Description>
 				</Card.Content>
 			</Card>

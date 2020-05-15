@@ -56,17 +56,13 @@ export default class StockShowPage extends Component {
 					&&
 					<Modal open={true} closeIcon onClose={this.props.closeShowModal}>
 						<div className='insideModalInfo'>
-							<h3>{this.props.stockToShowData.company_name}</h3>
-							<p><small><strong>By:</strong> {this.props.stockToShowData.poster.username}</small></p>
-							<p><strong>Open:</strong> {this.props.stockToShowData.stock_open}</p>
-							<p><strong>High:</strong> {this.props.stockToShowData.stock_high}</p>
-							<p><strong>Low:</strong> {this.props.stockToShowData.stock_low}</p>
-							<p><strong>Previous Close:</strong> {this.props.stockToShowData.previous_close}</p>
-							<p><strong>Volume:</strong> {this.props.stockToShowData.stock_volume}</p>
+							<p><strong>Symbol:</strong> {this.props.stockToShowData.symbol}</p>
+							<p><strong>Name:</strong> {this.props.stockToShowData.name}</p>
+							<p><strong>User:</strong> {this.props.stockToShowData.user.username}</p>
 							{
 								this.props.stockToShowData.date_posted
 								&&
-								<p><strong>Date Made:</strong> {dateMade.toLocaleDateString()}</p>
+								<p><strong>Date Added:</strong> {dateMade.toLocaleDateString()}</p>
 							}
 							<div className="authControls">
 							{

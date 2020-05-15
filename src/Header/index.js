@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import NewStockForm from '../NewStockForm'
-import NewScreenForm from '../NewScreenForm'
 import { Modal } from 'semantic-ui-react'
 import '../index.css'
 
@@ -52,9 +51,7 @@ export default class Header extends Component {
 						<span className='fake-link' onClick={this.props.switchMode}>Stocks</span>
 						
 						|---|
-						<span className='fake-link' onClick={this.props.switchMode}>Screens</span>
 
-						|---|
 						{
 							this.props.loggedIn
 							?
