@@ -47,7 +47,7 @@ export default class StockShowPage extends Component {
 	}
 
 	render() {
-		const dateMade = new Date(this.props.stockToShowData.date_posted)
+		const dateMade = new Date(this.props.stockToShowData.date_added)
 
 		return (
 			<>

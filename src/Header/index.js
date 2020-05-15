@@ -34,6 +34,7 @@ export default class Header extends Component {
 					<div className='Logo'>
 						<img 
 							className='fake-link'
+							height="100"
 							onClick={this.props.goHome}
 							src='https://i.imgur.com/G5bHYVn.png'
 						/>
