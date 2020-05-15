@@ -25,7 +25,7 @@ export default class StockContainer extends Component {
 		const pointerToThis = this;
 		console.log(pointerToThis)
 		const API_KEY = 'EIRKD54AJXO1NRSD';
-		let StockSymbol = 'AMZN'
+		let StockSymbol = 'GOOG'
 		let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${StockSymbol}&interval=5min&outputsize=compact&apikey=${API_KEY}`
 		let stockChartXValuesFunction = [];
 		let stockChartYValuesFunction = [];
@@ -33,7 +33,9 @@ export default class StockContainer extends Component {
 		fetch(API_Call)
 			.then(
 				function(response) {
-					return response.json();
+					const responseJson = response.json()
+					console.log(responseJson)
+					return responseJson
 				}
 			)
 			.then(
@@ -168,15 +170,14 @@ export default class StockContainer extends Component {
       			<Plot
         			data={[
           			  {
-            			x: [1, 2, 3],
-            			y: [2, 6, 3],
+            			x: this.state.stockChartXValues,
+            			y: this.state.stockChartYValues,
             			type: 'scatter',
             			mode: 'lines+markers',
             			marker: {color: 'red'},
-          			  },
-          				{type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
+          			  }
         			]}
-        			layout={{width: 320, height: 240, title: 'A Fancy Plot'}}
+        			layout={{width: 720, height: 440, title: 'StockSymbol'}}
       			/>
 					{
 						this.state.mode === 'show'

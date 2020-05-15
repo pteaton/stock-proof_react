@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import LoginRegisterForm from './LoginRegisterForm'
 import StockContainer from './StockContainer'
 import UserContainer from './UserContainer'
+import SearchContainer from './SearchContainer'
 import Header from './Header'
 import Footer from './Footer'
 import Home from './Home'
@@ -181,6 +182,7 @@ export default class App extends Component {
     
     return (
       <div className="App">
+
         <Header 
           logout={this.logout} 
           loggedIn={this.state.loggedIn}
@@ -192,6 +194,7 @@ export default class App extends Component {
           goHome={this.goHome}
           currentUser={this.state.currentUser}
         />
+        <SearchContainer />
         
         <div className='main'>
           {
