@@ -17,7 +17,7 @@ export default class UserContainer extends Component {
 	}
 
 	componentDidMount() {
-		this.getUsers()
+		// this.getUsers()
 	}
 
 	switchMode = (id) => {
@@ -99,33 +99,33 @@ export default class UserContainer extends Component {
 		this.switchMode()
 	}
 
-	getUsers = async () => {
-		try {
+	// getUsers = async () => {
+	// 	try {
 
-			const url = process.env.REACT_APP_API_URL + '/users/all'
+	// 		const url = process.env.REACT_APP_API_URL + '/users/all'
 
-			const usersResponse = await fetch(url, {
-				credentials: 'include'
-			})
+	// 		const usersResponse = await fetch(url, {
+	// 			credentials: 'include'
+	// 		})
 
-			const usersJson = await usersResponse.json()
+	// 		const usersJson = await usersResponse.json()
 
-			if(usersJson.status === 200) {
-				this.setState({
-					users: usersJson.data
-				})
-			}
+	// 		if(usersJson.status === 200) {
+	// 			this.setState({
+	// 				users: usersJson.data
+	// 			})
+	// 		}
 
-			for(let i = 0; i < this.state.users.length; i++){
-				await this.getAllStocksByUsers(this.state.users[i].id)
-			}
+	// 		for(let i = 0; i < this.state.users.length; i++){
+	// 			await this.getAllStocksByUsers(this.state.users[i].id)
+	// 		}
 
-		} catch (error) {
+	// 	} catch (error) {
 
-			console.error(error)
+	// 		console.error(error)
 	 
-	 	}
-	}
+	//  	}
+	// }
 
 	deleteUser = async (deleteInfo) => {
 

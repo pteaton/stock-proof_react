@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Plot from 'react-plotly.js'
 import StockList from '../StockList'
 import StockShowPage from '../StockShowPage'
 
@@ -6,6 +7,8 @@ export default class StockContainer extends Component {
 	constructor() {
 		super()
 		this.state = {
+			stockChartXValues: [],
+			stockChartYValues: [],
 			stocks: [],
 			mode: 'index',
 			stocksToShowData: ''
@@ -13,7 +16,44 @@ export default class StockContainer extends Component {
 	}
 
 	componentDidMount() {
+		this.fetchStock();
 		this.getStocks()
+	}
+
+	fetchStock() {
+		const pointerToThis = this;
+		console.log(pointerToThis)
+		const API_KEY = 'EIRKD54AJXO1NRSD';
+		let StockSymbol = 'AMZN'
+		let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${StockSymbol}&interval=5min&outputsize=compact&apikey=${API_KEY}`
+		let stockChartXValuesFunction = [];
+		let stockChartYValuesFunction = [];
+
+		fetch(API_Call)
+			.then(
+				function(response) {
+					return response.json()
+				}
+			)
+			.then(
+				function(data) {
+					console.log(data);
+
+					for(let key in data['Time Series (5min)']) {
+						stockChartXValuesFunction.push(key)
+						stockChartYValuesFunction.push(data['Time Series (5min)']
+						[key]['1. open'])
+						// adding other data to key
+					}
+
+					// console.log(stockChartXValuesFunction)
+
+					pointerToThis.setState({
+						stockChartXValues: stockChartXValuesFunction,
+						stockChartYValues: stockChartYValuesFunction
+					})
+				}
+			)
 	}
 
 	switchMode = (id) => {
@@ -126,6 +166,18 @@ export default class StockContainer extends Component {
 		return (
 			<>
 				<StockList switchMode={this.switchMode} stocks={this.state.stocks} />
+				<Plot
+        			data={[
+          			  {
+            			x: this.state.stockChartXValues,
+            			y: this.state.stockChartYValues,
+            			type: 'scatter',
+            			mode: 'lines+markers',
+            			marker: {color: 'red'},
+          			  },
+        			]}
+        			layout={{width: 720, height: 440, title: 'Your Stock Data'}}
+      			/>
 					{
 						this.state.mode === 'show'
 						&&

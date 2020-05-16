@@ -1,8 +1,9 @@
 import React from 'react'
 import '../index.css'
-import { Card } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 
 export default function StockList(props) {
+	console.log("here is props, hi", props)
 
 	const listedStocks = props.stocks.map(stock => {
 		return (
@@ -12,17 +13,22 @@ export default function StockList(props) {
 						className='fake-link'
 						onClick={() => props.switchMode(stock.id)}
 					>
-						{stock.symbol}
-						{stock.name}
 					</Card.Header>
 					<Card.Meta>
-						<h1>Stock Data here:</h1>
+						<p> Ticker:
+							<strong> {stock["1. symbol"]} </strong> 
+						</p>
 					</Card.Meta>
-					<Card.Description>
-						<strong>By:</strong> {stock.user.username.toUpperCase()} 
-						<small>Date Added: </small> {stock.date_added}
-					</Card.Description>
+					<Card.Meta>
+						<p> Name:
+							<strong> {stock["2. name"]} </strong> 
+						</p>
+					</Card.Meta>
+						<Card.Description>
+							<small>Region: {stock["4. region"]} </small> 
+						</Card.Description>
 				</Card.Content>
+				<Button onClick={() => console.log(stock)} />
 			</Card>
 		)
 	})

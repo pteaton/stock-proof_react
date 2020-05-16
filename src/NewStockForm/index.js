@@ -36,23 +36,23 @@ export default class NewStockForm extends Component {
 					<h2>Add a Stock below, do i still need this?</h2>
 					<Form onSubmit={this.handleSubmit}>
 						<Form.Field>
-							<Label>Symbol:</Label>
+							<Label>Ticker:</Label>
 							<Input
 								focus
 								name='symbol'
 								type='text'
-								placeholder='symbol here...'
+								placeholder='ticker here...'
 								value={this.state.symbol}
 								onChange={this.handleChange}
 							/>
 						</Form.Field>
 						<Form.Field>
-							<Label>Ticker:</Label>
+							<Label>Name:</Label>
 							<Input
 								focus
 								name='name'
 								type='text'
-								placeholder='ticker here...'
+								placeholder='name here...'
 								value={this.state.name}
 								onChange={this.handleChange}
 							/>
