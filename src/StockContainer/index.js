@@ -135,7 +135,7 @@ export default class StockContainer extends Component {
 			console.error(error)
 		}
 	}
-
+	// http://localhost:8000/api/v1/stocks/mystocks
 	getStocks = async () => {
 
 		try {

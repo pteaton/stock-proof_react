@@ -46,10 +46,14 @@ export default class Header extends Component {
 						<span className='fake-link' onClick={this.props.goHome}>Home</span>
 						
 						|-----|
-						<span className='fake-link' onClick={this.props.switchMode}>User</span>
+						<span className='fake-link' onClick={this.props.switchMode}>Users</span>
 						
 						|-----|
 						<span className='fake-link' onClick={this.props.switchMode}>Stocks</span>
+						
+						|-----|
+						<span className='fake-link' onClick={this.props.switchMode}>Portfolio</span>
+
 						|-----|
 						{
 							this.props.loggedIn
@@ -66,7 +70,7 @@ export default class Header extends Component {
 											onSubmit={this.showModal}
 											onClose={this.showModal}
 										> 
-											<NewStockForm addStock={this.props.addStock}/> 
+										<NewStockForm addStock={this.props.addStock}/> 
 										</Modal>
 									}
 									|

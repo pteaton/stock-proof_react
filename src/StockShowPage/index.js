@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Modal, Button } from 'semantic-ui-react'
-// import { Chart } from 'react-charts'
 import EditStockModal from '../EditStockModal'
 import '../index.css'
 
@@ -60,7 +59,7 @@ export default class StockShowPage extends Component {
 							<p><strong>Name:</strong> {this.props.stockToShowData.name}</p>
 							<p><strong>User:</strong> {this.props.stockToShowData.user.username}</p>
 							{
-								this.props.stockToShowData.date_posted
+								this.props.stockToShowData.date_added
 								&&
 								<p><strong>Date Added:</strong> {dateMade.toLocaleDateString()}</p>
 							}
