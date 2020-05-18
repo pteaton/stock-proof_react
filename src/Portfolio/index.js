@@ -1,10 +1,31 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Card, Button } from 'semantic-ui-react'
+import StockGraphDisplay from '../StockGraphDisplay'
 
-export default function Portfolio(props) {
-	console.log(props.currentUser)
-	console.log(props.userStocks)
-	const currentStocks = props.userStocks.map(stock => {
+export default class Portfolio extends Component {
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			idOfGraphToView: -1,
+			stockSymbolToView: ''
+		}
+	}
+
+	handleClick = (stock) => {
+		this.setState({
+			idOfGraphToView: stock.id,
+			stockSymbolToView: stock.symbol
+		})
+	}
+
+	closeModal=() => {
+		this.setState({
+			idOfGraphToView: -1
+		})
+	}
+
+	currentStocks = this.props.userStocks.map(stock => {
 		return (
 			<Card key={stock.id}>
 				<Card.Content>
@@ -14,17 +35,28 @@ export default function Portfolio(props) {
 					<Card.Meta>
 						{stock.symbol}
 					</Card.Meta>
-					<Button onClick={() => console.log(stock.symbol)}>Show Graph</Button>
+					<Button onClick={() => this.handleClick(stock)}>Show Graph</Button>
 				</Card.Content>
 			</Card>
 		)
 	})
 
-	return (
-		<React.Fragment>
-			<Card.Group>
-				{currentStocks}
-			</Card.Group>
-		</React.Fragment>
-	)
+	render() {
+		return (
+			<React.Fragment>
+				{
+					this.state.idOfGraphToView > -1
+					&&
+
+					<StockGraphDisplay
+						closeModal={this.closeModal}
+						stockSymbolToView={this.state.stockSymbolToView}
+					/>
+				}
+				<Card.Group>
+					{this.currentStocks}
+				</Card.Group>
+			</React.Fragment>
+		)
+	}
 }

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Plot from 'react-plotly.js'
+import { Modal, Button}  from 'semantic-ui-react'
 
 export default class StockGraphDisplay extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
 			stockChartXValues: [],
 			stockChartYValues: [],
@@ -13,15 +14,14 @@ export default class StockGraphDisplay extends Component {
 	}
 
 	componentDidMount() {
-		this.fetchStock();
+		this.fetchGraph();
 	}
 
-	fetchStock() {
+	fetchGraph() {
 		const pointerToThis = this;
 		console.log(pointerToThis)
 		const API_KEY = 'EIRKD54AJXO1NRSD';
-		// variable? const stockDisplay = this.props.stocks to change from hardcode
-		let StockSymbol = 'AMZN'
+		let StockSymbol = this.props.stockSymbolToView;
 		let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${StockSymbol}&interval=5min&outputsize=compact&apikey=${API_KEY}`
 		let stockChartXValuesFunction = [];
 		let stockChartYValuesFunction = [];
@@ -39,8 +39,8 @@ export default class StockGraphDisplay extends Component {
 					for(let key in data['Time Series (5min)']) {
 						stockChartXValuesFunction.push(key)
 						stockChartYValuesFunction.push(data['Time Series (5min)']
-						[key]['1. open']['2. high']['3. low']['5. volume'])
-						// adding other data to key?
+						[key]['1. open'])
+						// adding other data to key
 					}
 
 					// console.log(stockChartXValuesFunction)
@@ -55,7 +55,7 @@ export default class StockGraphDisplay extends Component {
 
 	render() {
 		return (
-			<React.Fragment>
+			<Modal open={true} closeIcon={true} onClose={this.props.closeModal}>
 				<Plot
         			data={[
           			  {
@@ -68,7 +68,8 @@ export default class StockGraphDisplay extends Component {
         			]}
         			layout={{width: 720, height: 440, title: 'Your Stock Data'}}
       			/>
-			</React.Fragment>
+      			<Button onClick={this.props.closeModal}>Close</Button>
+			</Modal>
 
 		)
 	}

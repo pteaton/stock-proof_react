@@ -22,7 +22,6 @@ export default class StockContainer extends Component {
 	}
 
 
-
 	fetchStock() {
 		const pointerToThis = this;
 		console.log(pointerToThis)
@@ -58,6 +57,7 @@ export default class StockContainer extends Component {
 				}
 			)
 	}
+
 
 	switchMode = (id) => {
 		if(this.state.mode === 'index') {
