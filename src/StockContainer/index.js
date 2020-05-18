@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Plot from 'react-plotly.js'
 import StockList from '../StockList'
 import StockShowPage from '../StockShowPage'
+import SearchContainer from '../SearchContainer'
 
 export default class StockContainer extends Component {
 	constructor() {
@@ -19,6 +20,8 @@ export default class StockContainer extends Component {
 		this.fetchStock();
 		this.getStocks()
 	}
+
+
 
 	fetchStock() {
 		const pointerToThis = this;
@@ -69,6 +72,43 @@ export default class StockContainer extends Component {
 				mode: 'index',
 				stocksToShowData: ''
 			})
+		}
+	}
+
+	// create function to call in stock list form to add stock to database
+	addStocks = async (stock) => {
+		try {
+			const newSymbol = stock["1. symbol"]
+
+			console.log(newSymbol)
+			const newName = stock["2. name"]
+			console.log(newName)
+
+			let stockObj = {
+				symbol: newSymbol,
+				name: newName
+			}
+			console.log(stockObj)
+
+			const url = process.env.REACT_APP_API_URL + '/stocks/add'
+
+			const addStocksResponse = await fetch(url , {
+				credentials: 'include',
+				method: 'POST',
+				body: JSON.stringify(stockObj),
+				headers: {
+					'Content-Type': 'application/json'
+				},
+			})
+
+			const addStocksJson = await addStocksResponse.json()
+
+			this.setState({
+				addStocks: addStocksJson.data
+			})
+
+		} catch(error) {
+			console.error(error)
 		}
 	}
 
@@ -164,8 +204,10 @@ export default class StockContainer extends Component {
 	render() {
 
 		return (
-			<>
-				<StockList switchMode={this.switchMode} stocks={this.state.stocks} />
+			<React.Fragment>
+				<SearchContainer 
+					addStocks={this.addStocks}
+				/>
 				<Plot
         			data={[
           			  {
@@ -189,7 +231,7 @@ export default class StockContainer extends Component {
 							deleteStocks={this.deleteStocks}
 						/>
 					}
-			</>
+			</React.Fragment>
 		)
 	}
 

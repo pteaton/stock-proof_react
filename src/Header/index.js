@@ -50,7 +50,7 @@ export default class Header extends Component {
 						
 						|-----|
 						<span className='fake-link' onClick={this.props.switchMode}>Stocks</span>
-
+						|-----|
 						{
 							this.props.loggedIn
 							?
@@ -76,7 +76,7 @@ export default class Header extends Component {
 							:
 							<React.Fragment>
 								
-								<span className='fake-link' onClick={this.props.switchMode}>Log In |-----| Register</span>
+								<span className='fake-link' onClick={this.props.switchMode}>Log In / Register</span>
 							</React.Fragment>
 						}
 					</div>

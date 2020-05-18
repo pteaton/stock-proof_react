@@ -17,7 +17,7 @@ export default class App extends Component {
     this.state = {
       loggedIn: false,
       message: '',
-      mode: 'Log In / Register',
+      mode: 'Home',
       currentUser: '',
       adding: false
     }
@@ -124,7 +124,8 @@ export default class App extends Component {
     }
   }
 
-    switchMode = (event) => {
+  switchMode = (event) => {
+    console.log("This is event.target.innerText\n\n\n\n\n", event.target.innerText)
     this.setState({
       mode: event.target.innerText
     })
@@ -167,12 +168,10 @@ export default class App extends Component {
           loggedIn={this.state.loggedIn}
           switchMode={this.switchMode}
           toggleAdd={this.toggleAdd}
-          addStock={this.addStock}
           mode={this.state.mode}
           goHome={this.goHome}
           currentUser={this.state.currentUser}
         />
-        <SearchContainer />
         
         <div className='main'>
           {

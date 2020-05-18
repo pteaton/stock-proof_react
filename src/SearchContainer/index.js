@@ -4,8 +4,8 @@ import { Form, Button, Label } from 'semantic-ui-react'
 
 export default class SearchContainer extends Component {
 
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
 			stocks: [],
 			bestMatches: [],
@@ -56,11 +56,9 @@ export default class SearchContainer extends Component {
 	// 	)
 	// })
 
+	// FINAL TOUCHES 
 	// move SearchContainer so only logged in user can see
-	// make SearchContainer display a stock list 
 
-	// render list of stocks
-	// each StockList Card will show stock symbol, stock name, add button
 	// StockList add button creates stock using API route from flask
 	// Create component for stock graph, for individual stock show page
 	
@@ -86,7 +84,10 @@ export default class SearchContainer extends Component {
 
 		return (
 				<React.Fragment>
-				<StockList stocks={this.state.bestMatches} />
+					<StockList 
+						stocks={this.state.bestMatches}
+						addStocks={this.props.addStocks} 
+					/>
 					<h1> Stock Data </h1>
 					<Form onSubmit={this.handleSubmit}>
 						<Label>Search bar</Label>

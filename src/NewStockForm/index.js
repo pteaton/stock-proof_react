@@ -57,7 +57,7 @@ export default class NewStockForm extends Component {
 								onChange={this.handleChange}
 							/>
 						</Form.Field>
-						<Button type="submit">Create Stock</Button>
+						<Button type="submit">Add Stock</Button>
 					</Form>
 				</div>
 		)

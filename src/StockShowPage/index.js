@@ -50,7 +50,7 @@ export default class StockShowPage extends Component {
 		const dateMade = new Date(this.props.stockToShowData.date_added)
 
 		return (
-			<>
+			<React.Fragment>
 				{
 					this.props.stockToShowData.poster !== undefined
 					&&
@@ -85,7 +85,7 @@ export default class StockShowPage extends Component {
 						</div>
 					</Modal>
 				}	
-			</>
+			</React.Fragment>
 		)
 	}
 }

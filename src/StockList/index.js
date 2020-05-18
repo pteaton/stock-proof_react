@@ -4,14 +4,13 @@ import { Card, Button } from 'semantic-ui-react'
 
 export default function StockList(props) {
 	console.log("here is props, hi", props)
-
 	const listedStocks = props.stocks.map(stock => {
 		return (
 			<Card key={stock.id}> 
 				<Card.Content>
 					<Card.Header 
 						className='fake-link'
-						onClick={() => props.switchMode(stock.id)}
+						onClick={() => props.switchMode(stock)}
 					>
 					</Card.Header>
 					<Card.Meta>
@@ -28,7 +27,7 @@ export default function StockList(props) {
 							<small>Region: {stock["4. region"]} </small> 
 						</Card.Description>
 				</Card.Content>
-				<Button onClick={() => console.log(stock)} />
+				<Button onClick={() => props.addStocks(stock)}>Add stock</Button>
 			</Card>
 		)
 	})
