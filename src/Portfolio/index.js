@@ -57,6 +57,7 @@ export default class Portfolio extends Component {
 						stockSymbolToView={this.state.stockSymbolToView} 
 						idOfStockToDelete={this.state.idOfGraphToView} 
 						deleteStocks={this.props.deleteStocks}
+						updateStocks={this.props.updateStocks}
 					/>
 				}
 				<Card.Group>

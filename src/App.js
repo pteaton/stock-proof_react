@@ -142,27 +142,27 @@ export default class App extends Component {
     })
   }
 
-  addStock = async (stockToAdd) => {
+  // addStock = async (stockToAdd) => {
     
-    try {
-      const url = process.env.REACT_APP_API_URL + '/stocks/add'
-      const addStockResponse = await fetch(url, {
-        credentials: 'include',
-        method: 'POST',
-        body: JSON.stringify(stockToAdd),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
+  //   try {
+  //     const url = process.env.REACT_APP_API_URL + '/stocks/add'
+  //     const addStockResponse = await fetch(url, {
+  //       credentials: 'include',
+  //       method: 'POST',
+  //       body: JSON.stringify(stockToAdd),
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       }
+  //     })
 
-      const addStockJson = await addStockResponse.json()
-      console.log(addStockJson)
-      this.getUserStocks()
+  //     const addStockJson = await addStockResponse.json()
+  //     console.log(addStockJson)
+  //     this.getUserStocks()
     
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
 
   // http://localhost:8000/api/v1/stocks/mystocks
   getUserStocks = async () => {
@@ -205,16 +205,28 @@ export default class App extends Component {
 
       if(deleteStockJson.status === 201) {
         this.setState({
-          stocks: this.state.userStocks.filter(stock => stock.id !== deleteStockJson.id)
+          userStocks: this.state.userStocks.filter(stock => stock.id !== deleteStockJson.id)
         })
+        console.log(this.state)
       }
     } catch(error) {
       console.error(error)
     }
   }
 
-  // updateStocks = (updateInfo)  
-
+  updateStocks = (updateInfo) => {
+    
+    this.closeShowModal()
+    
+    const stocks = this.state.userStocks
+    const indexOfStockBeingEdited = stocks.findIndex(stock => stock.id === updateInfo.data.id)
+    
+    stocks[indexOfStockBeingEdited] = updateInfo.data
+    
+    this.setState({
+      userStocks: stocks
+    })
+  }
 
 
   render() {
@@ -253,6 +265,7 @@ export default class App extends Component {
               userStocks={this.state.userStocks}
               currentUser={this.state.currentUser} 
               deleteStocks={this.deleteStocks}
+              updateStocks={this.updateStocks}
             />
           }
           {

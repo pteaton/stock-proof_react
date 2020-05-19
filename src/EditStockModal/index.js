@@ -30,7 +30,7 @@ export default class EditStockModal extends Component {
 	}
 
 	handleSubmit = () => {
-		this.props.editStock(this.state)
+		this.props.editStocks(this.state)
 	}
 
 	render() {

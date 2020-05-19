@@ -54,7 +54,37 @@ export default class StockGraphDisplay extends Component {
 			)
 	}
 
+	editStocks = async (editedStockInfo) => {
+		
+		const url = process.env.REACT_APP_API_URL + "/stocks/" + this.props.idOfStockToDelete
+
+		try {
+			const editStockResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'PUT',
+				body: JSON.stringify(editedStockInfo),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const editStockJson = await editStockResponse.json()
+			console.log("editStockJson", editStockJson)
+
+			if(editStockResponse.status == 200) {
+				this.props.updateStocks(editStockJson)
+
+			}
+		} catch(error) {
+			console.log(error)
+		}		
+	}
+
 	render() {
+
+		console.log(this.state, "This right here, this that State")
+		console.log(this.props, "this is props man")
+
 		return (
 			<Modal open={true} closeIcon={true} onClose={this.props.closeModal}>
 				<Plot
@@ -71,7 +101,9 @@ export default class StockGraphDisplay extends Component {
       			/>
       			<Button onClick={this.props.closeModal}>Close</Button>
       			<Button onClick={() => this.props.deleteStocks(this.props.idOfStockToDelete)}>Delete</Button>
-      			<EditStockModal />
+      			<EditStockModal 
+      				editStocks={this.editStocks}
+      			/>
 			</Modal>
 
 		)

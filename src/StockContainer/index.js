@@ -143,19 +143,24 @@ export default class StockContainer extends Component {
 	// 	}
 	// }
 
-	updateStocks = (updateInfo) => {
+	// updateStocks = (updateInfo) => {
 		
-		this.closeShowModal()
+	// 	this.closeShowModal()
 		
-		const stocks = this.state.stocks
-		const indexOfStockBeingEdited = stocks.findIndex(stock => stock.id === updateInfo.data.id)
+	// 	const stocks = this.state.stocks
+	// 	const indexOfStockBeingEdited = stocks.findIndex(stock => stock.id === updateInfo.data.id)
 		
-		stocks[indexOfStockBeingEdited] = updateInfo.data
+	// 	stocks[indexOfStockBeingEdited] = updateInfo.data
 		
-		this.setState({
-			stocks: stocks
-		})
-	}
+	// 	this.setState({
+	// 		stocks: stocks
+	// 	})
+	// }
+
+
+	// editStocks = async (editedStock) => {
+		
+	// }
 
 	render() {
 
