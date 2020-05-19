@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Plot from 'react-plotly.js'
 import { Modal, Button}  from 'semantic-ui-react'
+import EditStockModal from '../EditStockModal'
 
 export default class StockGraphDisplay extends Component {
 	constructor(props) {
@@ -70,6 +71,7 @@ export default class StockGraphDisplay extends Component {
       			/>
       			<Button onClick={this.props.closeModal}>Close</Button>
       			<Button onClick={() => this.props.deleteStocks(this.props.idOfStockToDelete)}>Delete</Button>
+      			<EditStockModal />
 			</Modal>
 
 		)

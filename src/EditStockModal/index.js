@@ -8,22 +8,19 @@ export default class EditStockModal extends Component {
 		super()
 
 		this.state = {
-			symbol: '',
-			name: ''
+			f_score: ''
 		}
 	}
 
 	componentDidMount() {
 		console.log(this.props)
-		//{
-			this.props.stockToShowData !== ""
-			&&
+		if(this.props.stockToShowData !== undefined) {
+			
 			this.setState({
-				symbol: this.props.stockToShowData.symbol,
-				name: this.props.stockToShowData.name,
+				f_score: this.props.stockToShowData.f_score
 
 			})
-		//}
+		}
 	}
 
 	handleChange = (event) => {
@@ -38,29 +35,18 @@ export default class EditStockModal extends Component {
 
 	render() {
 		return(
-			<Modal trigger={<Button>Edit Stock</Button>}>
+			<Modal trigger={<Button>Edit F-score</Button>}>
 				<div className='ModalForm'>
-					<h1>Edit this Stock!</h1>
+					<h1>Edit the F-score</h1>
 					<Form onSubmit={this.handleSubmit}>
 						<Form.Field>
-							<Label>Symbol:</Label>
+							<Label>F-score:</Label>
 							<Input
 								focus
-								name='symbol'
-								type='test'
-								placeholder='symbol here...'
-								value={this.state.symbol}
-								onChange={this.handleChange}
-							/>
-						</Form.Field>
-						<Form.Field>
-							<Label>Ticker:</Label>
-							<Input
-								focus
-								name='name'
-								type='text'
-								placeholder='ticker here...'
-								value={this.state.name}
+								name='f_score'
+								type='number'
+								placeholder='enter f-score here...'
+								value={this.state.f_score}
 								onChange={this.handleChange}
 							/>
 						</Form.Field>

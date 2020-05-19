@@ -8,7 +8,8 @@ export default class Portfolio extends Component {
 
 		this.state = {
 			idOfGraphToView: -1,
-			stockSymbolToView: ''
+			stockSymbolToView: '',
+			editModalShowing: false
 		}
 	}
 
@@ -35,8 +36,10 @@ export default class Portfolio extends Component {
 					<Card.Meta>
 						{stock.symbol}
 					</Card.Meta>
+					<Card.Description>
+						<small> F-score: {stock.f_score}</small>
+					</Card.Description>
 					<Button onClick={() => this.handleClick(stock)}>Show Graph</Button>
-
 				</Card.Content>
 			</Card>
 		)

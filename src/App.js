@@ -190,7 +190,7 @@ export default class App extends Component {
   }
 
 
-    deleteStocks = async (deleteId) => {
+  deleteStocks = async (deleteId) => {
     
     const url = process.env.REACT_APP_API_URL + '/stocks/' + deleteId
 
@@ -212,6 +212,8 @@ export default class App extends Component {
       console.error(error)
     }
   }
+
+  // updateStocks = (updateInfo)  
 
 
 

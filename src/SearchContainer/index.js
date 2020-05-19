@@ -56,11 +56,6 @@ export default class SearchContainer extends Component {
 	// 	)
 	// })
 
-	// FINAL TOUCHES 
-	// move SearchContainer so only logged in user can see
-
-	// StockList add button creates stock using API route from flask
-	// Create component for stock graph, for individual stock show page
 	
 
 
