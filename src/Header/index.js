@@ -60,20 +60,6 @@ export default class Header extends Component {
 							?
 							<React.Fragment>
 								<div>
-									<span className='fake-link' onClick={this.showModal}>Add Stock</span>
-									{
-										this.state.showModal
-										&&
-										<Modal 
-											open={true}
-											closeIcon
-											onSubmit={this.showModal}
-											onClose={this.showModal}
-										> 
-										<NewStockForm addStock={this.props.addStock}/> 
-										</Modal>
-									}
-									|
 									<span className='fake-link' onClick={this.props.logout}>Logout</span>
 								</div>
 							</React.Fragment>

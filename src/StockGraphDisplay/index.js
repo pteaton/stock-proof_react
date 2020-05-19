@@ -69,6 +69,7 @@ export default class StockGraphDisplay extends Component {
         			layout={{width: 720, height: 440, title: 'Your Stock Data'}}
       			/>
       			<Button onClick={this.props.closeModal}>Close</Button>
+      			<Button onClick={() => this.props.deleteStocks(this.props.idOfStockToDelete)}>Delete</Button>
 			</Modal>
 
 		)

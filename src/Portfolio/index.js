@@ -36,6 +36,7 @@ export default class Portfolio extends Component {
 						{stock.symbol}
 					</Card.Meta>
 					<Button onClick={() => this.handleClick(stock)}>Show Graph</Button>
+
 				</Card.Content>
 			</Card>
 		)
@@ -50,7 +51,9 @@ export default class Portfolio extends Component {
 
 					<StockGraphDisplay
 						closeModal={this.closeModal}
-						stockSymbolToView={this.state.stockSymbolToView}
+						stockSymbolToView={this.state.stockSymbolToView} 
+						idOfStockToDelete={this.state.idOfGraphToView} 
+						deleteStocks={this.props.deleteStocks}
 					/>
 				}
 				<Card.Group>

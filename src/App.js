@@ -157,6 +157,7 @@ export default class App extends Component {
 
       const addStockJson = await addStockResponse.json()
       console.log(addStockJson)
+      this.getUserStocks()
     
     } catch (error) {
       console.error(error)
@@ -176,9 +177,35 @@ export default class App extends Component {
 
       const stocksJson = await stocksResponse.json()
 
+      console.log(stocksJson)
+
       if(stocksJson.status === 200) {
         this.setState({
           userStocks: stocksJson.data
+        })
+      }
+    } catch(error) {
+      console.error(error)
+    }
+  }
+
+
+    deleteStocks = async (deleteId) => {
+    
+    const url = process.env.REACT_APP_API_URL + '/stocks/' + deleteId
+
+    try {
+      
+      const deleteStockResponse = await fetch(url, {
+        credentials: 'include',
+        method: 'DELETE'
+      })
+
+      const deleteStockJson = await deleteStockResponse.json()
+
+      if(deleteStockJson.status === 201) {
+        this.setState({
+          stocks: this.state.userStocks.filter(stock => stock.id !== deleteStockJson.id)
         })
       }
     } catch(error) {
@@ -222,7 +249,8 @@ export default class App extends Component {
             &&
             <Portfolio 
               userStocks={this.state.userStocks}
-              currentUser={this.state.currentUser}
+              currentUser={this.state.currentUser} 
+              deleteStocks={this.deleteStocks}
             />
           }
           {
